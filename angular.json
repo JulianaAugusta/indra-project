@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "my-bank-app"
+    }
+  },
+  "defaultProject": "my-bank-app",
+  "cli": {
+    "analytics": "0ca94f3b-9f37-4b56-b137-4791314c105f"
+  }
 }
