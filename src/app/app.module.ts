@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { ClientRegisterComponent } from './cadastro/client-register/client-register.component';
 
 import { AccountAccessComponent } from './account/account-access/account-access.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       {path: 'client-register', component: ClientRegisterComponent}
     ]),
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

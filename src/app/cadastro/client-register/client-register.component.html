@@ -3,38 +3,89 @@
     <div class="form-group">
       <label for="name">Nome</label>
       <input type="text" class="form-control" formControlName="name">
+      <div *ngIf="!name.pristine && name.errors">
+        <p *ngIf="name.errors.required">
+          Nome é obrigatório.
+        </p>
+        <p *ngIf="name.errors.minlength">
+          Nome deve ter no mínimo 3 caracters.
+        </p>
+        <p *ngIf="name.errors.maxlength">
+          Nome deve ter no máximo 100 caracters.
+        </p>
+      </div>
     </div>
     <div class="form-group">
       <label for="cpf">CPF</label>
-      <input type="number" class="form-control" formControlName="cpf">
+      <input type="text" class="form-control" formControlName="cpf">
+      <div *ngIf="!cpf.pristine && cpf.errors">
+        <p *ngIf="cpf.errors.required">
+          CPF é obrigatório.
+        </p>
+        <p *ngIf="cpf.errors.invalidCpf">
+          Digite um CPF válido
+        </p>
+      </div>
     </div>
     <div class="form-group">
         <label for="telephone">Celular</label>
-        <input type="tel" class="form-control" formControlName="telephone">
+        <input type="tel" class="form-control" maxlength="15" formControlName="telephone">
     </div>
     <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control" formControlName="email">
+        <div *ngIf="!email.pristine && email.errors">
+          <p *ngIf="email.errors.email">
+            Digite um e-mail válido.
+          </p>
+        </div>
     </div>
     <div class="form-group">
         <label for="birthday">Data de Nascimento</label>
         <input type="date" class="form-control" formControlName="birthday">
+        <div *ngIf="!birthday.pristine && birthday.errors">
+          <p *ngIf="birthday.errors.required">
+            Data de Nascimento é obrigatória.
+          </p>
+          <p *ngIf="birthday.errors.underAge">
+            Você precisa ter mais de 18 anos para cadastrar-se.
+          </p>
+        </div>
     </div>
     <div class="form-group">
         <label for="password">Senha</label>
         <input type="password" class="form-control" formControlName="password">
+        <div *ngIf="!password.pristine && password.errors">
+          <p *ngIf="password.errors.required">
+            Senha é obrigatória.
+          </p>
+          <p *ngIf="password.errors.minlength">
+            Senha deve ter no mínimo 6 caracters.
+          </p>
+          <p *ngIf="password.errors.maxlength">
+            Senha deve ter no máximo 8 caracters.
+          </p>
+        </div>
     </div>
     <div class="form-group">
         <label for="passwordConfirm">Confirmação de Senha</label>
         <input type="password" class="form-control" formControlName="passwordConfirm">
+        <div *ngIf="!passwordConfirm.pristine && passwordConfirm.errors">
+          <p *ngIf="passwordConfirm.errors.required">
+            Confirme sua senha.
+          </p>
+          <p *ngIf="passwordConfirm.errors.passwordsNotMatch">
+            As senhas não coincidem.
+          </p>
+        </div>
     </div>
     <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Aceitação dos termos</label>
+      <input type="checkbox" class="form-check-input" formControlName="terms">
+      <label class="form-check-label" for="terms">Declaro que li e Concordo com os <a href="">Termos de responsabilidade</a></label>
     </div>
     <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Desejo receber mais informações sobre investimento via SMS ou email</label>
+        <input type="checkbox" class="form-check-input" formControlName="sms">
+        <label class="form-check-label" for="sms">Desejo receber mais informações sobre investimento via SMS ou email</label>
       </div>
     <button [disabled]="!newUserForm.valid" class="btn btn-primary">Criar Conta</button>
 
