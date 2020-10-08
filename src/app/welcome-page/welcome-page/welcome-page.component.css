@@ -1,0 +1,17 @@
+.jumbotron {
+    background: rgb(250, 251, 252); 
+    background: rgba(250, 251, 252, 0.8); 
+ }
+
+  .button-container{
+      width: 400px;
+      height: 400px;
+  }
+
+  .btn-color {
+    background-color: #ed7e19;
+  }
+
+  .selected {
+    font-weight: bold;
+}

@@ -8,13 +8,20 @@ import { ClientRegisterComponent } from './cadastro/client-register/client-regis
 
 import { AccountAccessComponent } from './account/account-access/account-access.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogTermsComponent } from './dialog/dialog-terms/dialog-terms.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientRegisterComponent,
-    AccountAccessComponent
+    AccountAccessComponent,
+    DialogTermsComponent,
+    WelcomePageComponent
   ],
+  entryComponents: [DialogTermsComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
@@ -23,6 +30,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ]),
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

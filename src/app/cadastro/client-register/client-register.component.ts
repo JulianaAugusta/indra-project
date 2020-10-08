@@ -1,3 +1,5 @@
+import { DialogTermsComponent } from './../../dialog/dialog-terms/dialog-terms.component';
+import { MatDialog } from '@angular/material/dialog';
 import { User } from './../../model/user';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,10 +14,15 @@ export class ClientRegisterComponent implements OnInit {
 
   newUserForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public dialog: MatDialog) { }
+  
 
   ngOnInit(): void {
     this.createNewUserForm();
+  }
+
+  openDialog() {
+    this.dialog.open(DialogTermsComponent);
   }
 
   sendData() {
